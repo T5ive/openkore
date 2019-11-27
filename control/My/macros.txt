@@ -1,0 +1,369 @@
+
+automacro autoWarp{
+location izlude
+timeout 30
+delay 2
+call {
+		
+		pause @rand(2,3,4,2)
+		$saveMap = @eval($::config{saveMap})
+		$nameMap = $.map
+		$mapX = @arg("$.pos", 1)
+		$mapY = @arg("$.pos", 2)
+		
+		
+	    if ( $saveMap == $nameMap ) goto checkMap
+		goto warpMap
+	
+		
+		:checkMap
+			if ( ($mapX > 100 && $mapX < 208) && ($mapY > 53 && $mapY < 58)) goto warpMap
+			goto checkError
+			
+		
+		:warpMap
+			pause @rand(2,3,4)
+			#do c @random ("เหอะๆๆ","เอาที่สบายใจเบย","........","- -")
+			pause @rand(2,3,4)
+			do respawn
+
+
+		
+		:checkError
+			
+		release all
+ }
+}
+
+############ by openkore.in #################
+
+automacro unstuck {
+   timeout 3
+   exclusive 1
+   console /You tried too long to move/
+   call {
+   do eval AI::clear
+   }
+}
+
+#ถ้าต้องเทเลแล้วติดดีเลย์ให้ใช้วิงแทน
+automacro untele{
+        exclusive 1
+        console /Skill Teleportation failed: Mid-Delay \(error number 4\)/i
+        call {
+        do is Fly Wing
+        do warp cancel
+        do eval AI::clear
+        }
+}
+
+#แก้เปิดหน้าต่างเทเลค้างละทำไรไม่ได้
+automacro untele2{
+        exclusive 1
+        console /Any work in progress \(NPC dialog, manufacturing ...\) quit and try again./i
+    overrideAI 1
+        call {
+        do warp cancel
+        do eval AI::clear
+        
+        }
+}
+
+automacro unstuck {
+   timeout 3
+   exclusive 1
+   console /(No LOS|Stuck|calculate|reach or damage target|tried too long to move)/i
+   call {
+      $escape = @random("Clear AI","ChangeDirection","Move Random Blocks")
+      if ($escape = "Clear AI") goto clear
+      if ($escape = "ChangeDirection") goto change
+      if ($escape = "Move Random Blocks") goto move
+      
+      :clear
+      log Bot is stuck.
+      log Trying to unstuck by Clearing AI.
+      log Bot successfully unstuck.
+      do eval AI::clear
+      stop
+      
+      :change
+      log Bot is stuck.
+      log Trying to unstuck by Changing Direction.
+      do @random("north","northeast","east","southeast","south","southwest","west","northwest") 1
+      log Bot successfully unstuck.
+      stop
+      
+      :move
+      log Bot is stuck.
+      log Trying to unstuck by Moving Random Blocks.
+      $x = @eval (return $::char->{pos}{x})
+      $y = @eval (return $::char->{pos}{y})
+      do move @eval($x + @rand(-1,1)) @eval($y + @rand(-1,1))
+      log Bot successfully unstuck.
+      stop
+   }
+}
+
+automacro overWeight {
+weight >= 75%
+run-once 1
+call {
+pause 1
+do respawn
+pause 2
+do autosell
+}
+}
+
+automacro unstuck {
+   timeout 3
+   exclusive 1
+   console /(No LOS|Stuck|calculate|reach or damage target|tried too long to move)/i
+   call {
+      $escape = @random("Clear AI","ChangeDirection","Move Random Blocks")
+      if ($escape = "Clear AI") goto clear
+      if ($escape = "ChangeDirection") goto change
+      if ($escape = "Move Random Blocks") goto move
+      
+      :clear
+      log Bot is stuck.
+      log Trying to unstuck by Clearing AI.
+      log Bot successfully unstuck.
+      do eval AI::clear
+      stop
+      
+      :change
+      log Bot is stuck.
+      log Trying to unstuck by Changing Direction.
+      do @random("north","northeast","east","southeast","south","southwest","west","northwest") 1
+      log Bot successfully unstuck.
+      stop
+      
+      :move
+      log Bot is stuck.
+      log Trying to unstuck by Moving Random Blocks.
+      $x = @eval (return $::char->{pos}{x})
+      $y = @eval (return $::char->{pos}{y})
+      do move @eval($x + @rand(-1,1)) @eval($y + @rand(-1,1))
+      log Bot successfully unstuck.
+      stop
+   }
+}
+
+automacro talk {
+pubm /บอท|bot/Bot/i
+location not prontera,morocc,lighthalzen,payon,alberta,geffen
+timeout 60
+call {
+pause 3
+log กำลังตอบ Chat auto
+do c @random ("เหอๆ","'วางถุงกาวนะ","ไปละผมรีบ")
+pause 1
+log กำลังตอบ Chat auto
+do e @random ("ยังไม่จบ","ไหนว่าสิบ่ทิ่มกัน","ไปดีฟ่า")
+pause 1
+}
+}
+
+automacro pmbot {
+pm /report|bot|สัสบอท|จะแจมเพื่อ|บอท|นาย|แจมไมสัส|แบน|โกง|bot|สวัสดีครับ|ควาย|รีพอล|ดีคับ|จีเอ็ม|ควาย|...|gm|/i
+location not lighthalzen,payon,alberta,geffen,prontera,morocc
+call {
+pause 3
+$pm = @eval ($pm + 1)
+if ($pm == 1) goto fail
+if ($pm == 2) goto fail1
+if ($pm == 3) goto fail2
+if ($pm == 4) goto end
+:fail
+log กำลังตอบ Pm auto
+do pm "$.lastpm" @random ("*0*","ว่าไงคับ","มาอีกคนละ","นอนบ้างนะเราอ่ะ","เรื่องนี้ริวจะไม่ยุ่ง","เจนสัมผัสได้")
+stop
+:fail1
+pause 2
+log กำลังตอบ Pm auto
+do pm "$.lastpm" @random ("ไปขี้ไป","ขาดยาหรอคับ","พักผ่อนบ้างนะ","สอนมั่งสิบอทไง","ข้องใจหรอ","pvpได้นะ","เจอแต่เกียน","เหอๆ")
+stop
+:fail2
+log กำลังตอบ Pm auto
+do pm "$.lastpm" @random ("สรุปเก็บกด","ที่บ้านไม่รักว่างั้น","น่าสงสารนะเรา","กาวน่ะเลิกดมนะ","สมองไปหมดละเมิง")
+stop
+:end
+log กำลังตอบ Pm auto
+do pm "$.lastpm" นอนน้อยแต่ก้อต้องนอนนะ
+log กำลังปิด Pm auto
+do ignore 1 $.lastpm
+$pm = 0
+}
+}
+
+automacro gohome {
+location izlude,louyang,yuno
+run-once 1
+call {
+log วิงกลับจุด save หนีพวกจับบอท
+do is Butterfly Wing
+pause 2
+log แผ่นดิคับรออ่ะไร 5555555555555555
+do ai off 
+release all
+}
+}
+
+automacro antibot {
+status GM Perfect Hide
+exclusive 1
+run-once 1
+call {
+pause 1
+log พ่ออยู่ใน logmap ส่องหั้ยไว -*-
+do eval Utils::Win32::playSound ('sound\sirenwail.wav')
+pause 2
+do is Butterfly Wing
+pause 2
+do ai off
+}
+}
+
+automacro gmnear {
+console /Remove Perfectly hidden/i,/perfectly hidden/i
+run-once 1
+call {
+$var1 = first
+pause 2
+log มี พ่อ ใน map ดูหั้ยไว
+do eval Utils::Win32::playSound Utils::Win32::playSound('sound\sirenwail.wav')
+pause 2
+do is Novice Butterfly Wing,Butterfly Wing
+pause 2
+do ai off
+}
+}
+
+automacro skill {
+location not prontera,alberta,geffen,izlude,morocc,lighthalzen,payon
+console /Warp Portal/
+run-once 1
+call fly
+}
+macro fly {
+log กำลังเทเลพอตหนีพวกจับบอท
+do is Fly Wing
+pause 1
+release skill
+}
+
+automacro skill2 {
+location not prontera,morocc,payon,geffen,alberta,izlude,lighthalzen
+console /Ice Wall/
+run-once 1
+call fly
+}
+macro fly {
+log กำลังชิ่งหนี Ice Wall พวกจับบอท
+do is Fly Wing
+pause 1
+release skill
+}
+
+automacro skill1 {
+console /Waterattack/
+call {
+[
+log ---- กำลังเทเลพอตหลับสกิวมอนสเตอร์    ----
+]
+do is Fly Wing
+}
+}
+
+automacro skill2 {
+console /(.*) (Monster Sea Otter) \((.*)\) (uses Water Ball on you) \((.*)\) \((.*)\)/
+call {
+[
+log -----กำลังเทเลพอตหลบสกิวมอนสเตอร์ -----
+]
+do is Fly Wing
+}
+}
+
+automacro overWeight {
+weight >= 50%
+run-once 1
+call {
+pause 1
+do respawn
+pause 2
+do autosell
+}
+}
+
+automacro Whisper { 
+console /Unkonwn switch/ 
+call {
+do eval Utils::Win32::playSoundUtils::Win32::playSound('sound\sirenwail.wav')
+}
+}
+automacro Whisper { 
+hook packet_privMsg
+call {
+do eval Utils::Win32::playSoundUtils::Win32::playSound('sound\sirenwail.wav')
+}
+}
+
+automacro fix_tele {
+
+   console "any work in progress (NPC dialog, manufacturing...)quit and try again."
+   timeout 5
+
+
+call {
+ 
+pause 1
+do warp cancel
+
+pause .2
+
+do ai on
+
+pause .2
+
+do reload config
+
+pause .2
+
+do reload macros
+
+release all
+
+}
+
+}
+
+utomacro privMsg {
+hook packet_privMsg   
+   call {
+   do eval Utils::Win32::playSound('sound\note.wav')
+     }
+}
+
+automacro card {
+console / Card/
+   call {
+   do eval Utils::Win32::playSound('sound\sirenwail.wav')
+     }
+}
+
+automacro unknown packet {
+console /Unknown switch:/	
+   call {
+   do eval Utils::Win32::playSound('sound\sirenwail.wav')
+     }
+}
+
+automacro GM {
+console /GM:/		
+   call {
+   do eval Utils::Win32::playSound('sound\sirenwail.wav')
+     }
+}
+
