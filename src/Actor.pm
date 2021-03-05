@@ -458,16 +458,6 @@ sub blockDistance {
 }
 
 ##
-# boolean $Actor->snipable()
-#
-# Returns whether or not you have snipable LOS to the actor.
-sub snipable {
-	my ($self) = @_;
-
-	return checkLineSnipable($char->position, $self->position);
-}
-
-##
 # Actor $Actor->deepCopy()
 # Ensures: defined(result)
 #
@@ -713,6 +703,7 @@ sub attack {
 		pos_to => { %{$target->{pos_to}} },
 	);
 	
+	$self->queue('checkMonsters') if !AI::inQueue("checkMonsters");
 	$self->queue('attack', \%args);
 	
 	message sprintf($self->verb(T("%s are now attacking %s\n"), T("%s is now attacking %s\n")), $self, $target);
@@ -769,16 +760,15 @@ sub route {
 		y => $y,
 		maxDistance => $args{maxRouteDistance},
 		maxTime => $args{maxRouteTime},
-		avoidWalls => !$args{noAvoidWalls},
-		map { $_ => $args{$_} } qw(distFromGoal pyDistFromGoal notifyUponArrival)
+		map { $_ => $args{$_} } qw(distFromGoal pyDistFromGoal notifyUponArrival avoidWalls)
 	);
 	
 	if ($map && !$args{noMapRoute}) {
 		$task = new Task::MapRoute(map => $map, @params);
 	} else {
-		$task = new Task::Route(@params);
+		$task = new Task::Route(field => $field, @params);
 	}
-	$task->{$_} = $args{$_} for qw(attackID attackOnRoute noSitAuto LOSSubRoute isRandomWalk isFollow);
+	$task->{$_} = $args{$_} for qw(attackID attackOnRoute noSitAuto LOSSubRoute meetingSubRoute isRandomWalk isFollow isIdleWalk isSlaveRescue isMoveNearSlave);
 	
 	$self->queue('route', $task);
 }

@@ -141,7 +141,7 @@ PES#
 [Alt] + [End]:  Liga ou Desliga a Barra de HP/SP#
 [Alt] + [Home]:  Liga ou Desliga o Cursor do Solo#
 [Insert]:  Faz o personagem sentar ou levantar.  (Atalho para /sit ou /stand)#
-Parabéns! Você ganhou!! Você recebeu #
+Parabéns! Você ganhou!! Você recebeu # 
 !#
 Parabéns! Você ganhou!! Você recebeu #
  de EXP base!#
@@ -299,7 +299,7 @@ Você só pode trocar 10 tipos de itens de cada vez.#
 Você é menor de idade.#
 Digite seu endereço de e-mail.#
 Digite seu endereço de e-mail.#
-Não foi possível deletar o personagem porque você digitou um e-mail errado.#
+Confirmação por e-mail indisponível, deixe o campo de e-mail em branco e tente novamente.#
 Digite a segunda série de números de seguridade social.#
 Não foi possível deletar o personagem porque você digitou um SSN incorreto.#
 Você não pode vender mais de 15 tipos de itens de uma só vez.#
@@ -2092,8 +2092,8 @@ It is not logged in or unexist character.#
 Falcon summoning has failed.#
 %d%% ( Premium %d%% + %s server %d%% )#
 The user is currently joining in the Siege.#
-It is not possible to change the party leader in the same map.#
-It is not possible to change the party leader in current area.#
+Não é possível alterar a liderança do grupo caso esteja em um mapa diferente do outro personagem.#
+Não é possível alterar a liderança do grupo nessa área atual.#
 dpwn the Gryphon#
 %d Mês %d Dia %d Hora %d Min %d Sec#
 You canot invite to the guild as you are in the siege.#
@@ -2172,8 +2172,8 @@ Select at least 2 items of the same kind.#
 Unificação dos itens realizada com sucesso.#
 Você deve unificar somente 1 tipo de item por vez.#
 The amount of the item is over 30000 pieces.#
-Turn on left#
-Turn on right#
+Virar pra Esquerda#
+Virar pra Direita#
 See previous server info of (%s)#
 Previous server info#
 ^ff0000Previous server : ^0000ff#
@@ -2696,7 +2696,7 @@ E X P: %.1f%% (Basic 100.0%% PC cafe %.1f%% + %s %.1f%%)#
 DROP : %.1f%% (Basic 100.0%% PC cafe %.1f%% + %s %.1f%%)#
 DEATH: %.1f%% (Basic 100.0%% PC cafe %.1f%% + %s %.1f%%)#
 Limite de Itens anexados foi excedido.#
-Alarms when purchasing items#
+Notificar ao comprar um item#
 Esse item não pode ser anexado no Rodex.#
 Drawing the blank in the previous roulette, you cannot play the higher roulette.#
 Escrever Resposta#
@@ -2795,7 +2795,7 @@ Auction X#
 Guild storage X#
 To sell item to NPC X#
 There is a restriction on movement#
-Please create a character.#
+Por favor, crie seu personagem.#
 You need to disarm the equipped projectiles.#
 You cannot enter the memorial dungeon due to excessive number of people.#
 Memorial dungeon enterance failed due to excessive number of people.#
@@ -2836,7 +2836,7 @@ This hairstyle cannot be dyed.#
 Press an arrow to choose the style you want.#
 Come and see the new styles.\n(? Purchased accessories will be sent via RODEX.)#
 Basic style#
-You can level up the skill from the base Lv. %d.#
+Habilidade disponível somente a partir do nível base %d.#
 You cannot use the special character as a name.#
 Not enough MHP to use the skill.#
 Not enough MSP to use the skill.#
@@ -2894,10 +2894,10 @@ E X P : %.1f%% ( basic %.1f%% %s %.1f%%)#
 DROP  : %.1f%% ( basic %.1f%% %s %.1f%%)#
 DEATH : %.1f%% ( basic %.1f%% %s %.1f%%)#
 Destinatário da Carta teve o nome alterado. A carta foi enviada para : %s #
-Necessary materials to combine#
-Not enough materials to combine.#
-%d number of materials required.#
-Not enough refine grade to combine.#
+Materiais necessários#
+Materiais insuficientes para combinar.#
+Precisa de %d desse material.#
+Refinamento insuficiente para combinar.#
 Do you want to sign in Adventure Agency?#
 You can leave your comment.#
 Please enter the characters from the image.#
@@ -2913,15 +2913,39 @@ DEATH : %d%% ( basic 100.0%% %s %d%%)#
 Moving to destination.#
 [%s] file is not existing. Activating default AI#
 %.1f%% ( Basic 100.0%% + Premium %.1f%% + %s %.1f%%)#
+Você deseja abrir sua loja na célula escolhida?#
 #
+O item será enviado pelo Rodex.#
 #
 #
 #
 #
+Visualizar#
 #
 #
+Encerrar#
+Deseja encerrar a sua loja?#
+%02dd %02dhr %02dmin %02ds#
 #
 #
+Escolha o local para abrir a loja#
+Nome do mascote alterado para ^0000ff^0000ff %s^000000^000000.#
+Hora da compra#
+Item#
+Quantidade#
+Preço Unitário#
+Preço#
+Item de venda#
+Item de compra#
+Fechar Loja de Venda#
+Fechar Loja de Compra#
+Zeny restante#
+Item da lista#
+Vitrine da Loja#
+Item reembolsado#
+Qtd. reembolsada#
+Hora do reembolso#
+Quantidade de zeny envolvido nessa transação será enviado para o Rodex#
 #
 #
 #
@@ -2931,9 +2955,15 @@ Moving to destination.#
 #
 #
 #
+Tabeliã de Prontera#
+Mudança Familiar#
+Prezado (a).\r\n\r\nA partir de hoje, \"%s\" e \"%s\" não serão mais responsáveis legais de \"%s\".\r\n\r\nEsta mensagem tem intuito informativo.\r\n\r\nSe deseja mais informações sobre relações familiares, por favor, dirija-se ao Escritório de Prontera.\r\n\r\nO referido é verdade e dou fé.#
+Janela de Visualização#
 #
 #
 #
+Quando você se torna mini, você não pode transcender, tem uma limitação nos status e o HP e SP são reduzidos. \nVocê gostaria de prosseguir mesmo com essas restrições?#
+Quando você se torna mini, você não pode transcender, tem uma limitação nos status e o HP e SP são reduzidos. \nVocê gostaria de prosseguir mesmo com essas restrições?#
 #
 #
 #
@@ -2943,46 +2973,16 @@ Moving to destination.#
 #
 #
 #
+Remover#
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+Função de chamado (ligada)#
+Função de chamado (desligada)#
+Exibir mensagem de chamado#
+O personagem não pode ser excluído porque ainda possui uma loja aberta.#
+Você já tem uma loja ativa em outro lugar..#
+Não é possível criar uma loja aqui.#
+Não é possível criar uma loja aqui.#
 #
 #
 #
@@ -3014,13 +3014,13 @@ Você precisa de pelo menos %d Projéteis para usar essa habilidade.#
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
+Humano#
+Espadachim, Mago, Mercador, Noviço, Gatuno, Arqueiro#
+Doram#
+Invocador#
+A raça com maior presença em Rune-Midgard. São muito talentosos e adaptáveis.#
+Os Doram são seres curiosos por natureza e possuem uma personalidade radiante.#
+Você está acima do limite de peso ou você não tem mais de 10 espaços livres no inventário.#
 #
 #
 #
@@ -3040,6 +3040,10 @@ Palavrões não são permitidos.\nTente novamente.#
 #
 #
 #
+A mensagem contém itens que não podem ser usados#
+#
+#
+Fechar#
 #
 #
 #
@@ -3098,11 +3102,7 @@ Palavrões não são permitidos.\nTente novamente.#
 #
 #
 #
-#
-#
-#
-#
-#
+Deletar Data %d/%d#
 #
 Todas#
 A completar#
@@ -3219,6 +3219,10 @@ Remetente#
 #
 #
 #
+^bTaxa de Vendas^/b\n\nConfira as taxas cobradas sobre cada faixa de preço:\n\n0z a 10.000 z\n: Taxa de ^1567fe0%^000000\n10.001z a 100.000z\n: Taxa de ^1567fe0%^000000\n100.001z a 1.000.000z\n: Taxa de ^1567fe0%^000000\n1.000.001z a 10.000.000 z\n: Taxa de ^1567fe0%^000000\n10.000.001z a 100,000,000 z\n: Taxa de ^1567fe5%^000000\nAcima de 100.000.001 z\n: taxa de ^1567fe5%^000000\n#
+Valor: #
+Você receberá por Rodex o zeny referente aos itens vendidos.#
+O zeny será debitado do seu personagem no ato da compra.#
 #
 #
 #
@@ -3231,6 +3235,7 @@ Remetente#
 #
 #
 #
+Minha Loja#
 #
 #
 #
@@ -3308,12 +3313,7 @@ Remetente#
 #
 #
 #
-#
-#
-#
-#
-#
-Usuário não encontrado#
+Usuário não encontrado#   
 Conta bloqueada#
 #
 Senha ou usuário incorreto#
@@ -3336,11 +3336,24 @@ Sistema indisponível#
 #
 #
 #
+Futuras Informações#
+Deletar#
+Cancelar#
+Iniciar#
+Deletar#
+Seleção de Personagem#
+Aviso#
+Criar#
+Tipo de Penteado#
+Cor do Cabelo#
 #
+%d:%d:%d#
 #
+Voltar#
 #
 #
 #
+Criar Personagem#
 #
 #
 #
@@ -3436,7 +3449,10 @@ Sistema indisponível#
 #
 #
 #
+Exibir Invocações#
+Não exibir Invocações#
 #
+Senha#
 #
 #
 #
@@ -3466,6 +3482,8 @@ Sistema indisponível#
 #
 #
 #
+Aviso sobre a remoção da sua loja#
+Olá!\r\nSua loja foi fechada antes da hora porque percebemos que ela violava a política de conduta do jogo.\r\n Se precisar se mais informações, envie um ticket.\r\nAgradecemos a compreensão.#
 #
 #
 #
@@ -3473,25 +3491,7 @@ Sistema indisponível#
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+Remoção de loja#
 #
 #
 #
@@ -3558,13 +3558,13 @@ Buscar#
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
+Expandir inventário#
+Deseja usar 1 ^0000ff%s^000000 para aumentar o inventário de \n(^0000ff%d^000000) para (^0000ff%d^000000) itens?.\n^ff0000 A expansão não pode ser revertida.^000000#
+A expansão do inventário falhou.#
+Feche as janelas de diálogo antes de expandir o inventário.#
+Você não tem o item necessário para expandir o inventário.#
+O inventário foi expandido ao máximo.#
+O inventário foi expandido com sucesso.#
 #
 #
 #
@@ -3601,7 +3601,7 @@ Simplified aurora#
 Turn on aurora#
 Show Effect#
 Show Shadows#
-No Shift#
+Esta janela não pode ser fechada agora.#
 Select Hardware T&L Acceleration Function#
 Select Game Resolution#
 Use full screen#
@@ -3612,7 +3612,7 @@ Graphic Device Settings#
 Graphic Resolution Settings#
 Full Screen Settings#
 Fix mouse Settings#
-Commission : #
+Taxa : #
 Total commission amount : #
 Select receiver#
 Select receiving group#

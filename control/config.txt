@@ -23,6 +23,7 @@ forceMapIP
 XKore 0
 XKore_port 2350
 XKore_dll NetRedirect.dll
+XKore_injectDLL 1
 XKore_autoAttachIfOneExe 1
 XKore_silent 1
 XKore_bypassBotDetection 0
@@ -66,20 +67,23 @@ attackAuto_onlyWhenSafe 0
 attackAuto_followTarget 1
 attackAuto_inLockOnly 1
 attackAuto_notInTown 1
-attackDistance 1.5
+attackDistance 1
 attackDistanceAuto 0
-attackMaxDistance 2.5
-attackMaxRouteDistance 100
+attackMaxDistance 1
+attackMaxRouteDistance 50
 attackMaxRouteTime 4
 attackMinPlayerDistance 2
 attackMinPortalDistance 4
 attackUseWeapon 1
 attackNoGiveup 0
 attackCanSnipe 0
-attackCheckLOS 0
+attackCheckLOS 1
+attackRouteMaxPathDistance 13
 attackLooters 0
 attackChangeTarget 1
 aggressiveAntiKS 0
+
+attackUpdateMonsterPos 1
 
 autoMoveOnDeath 0
 autoMoveOnDeath_x
@@ -140,6 +144,8 @@ avoidList_inLockOnly 0
 avoidList_reconnect 1800
 avoidList_ignoreList
 
+avoidHiddenActors 0
+
 cachePlayerNames 1
 cachePlayerNames_duration 900
 cachePlayerNames_maxSize 100
@@ -163,7 +169,6 @@ dcOnJobLevel
 dcOnLevel
 
 follow 0
-followCheckLOS 0
 followTarget
 followEmotion 1
 followEmotion_distance 4
@@ -173,8 +178,6 @@ followDistanceMin 3
 followLostStep 12
 followSitAuto 0
 followBot 0
-followRandom 0
-followRandomDistance 4
 
 itemsTakeAuto 2
 itemsTakeAuto_party 0
@@ -203,10 +206,10 @@ route_randomWalk_maxRouteTime 75
 route_maxWarpFee
 route_maxNpcTries 5
 route_teleport 0
-route_teleport_minDistance 150
+route_teleport_minDistance 75
 route_teleport_maxTries 8
 route_teleport_notInMaps
-route_step 15
+route_step 10
 route_removeMissingPortals_NPC 1
 route_removeMissingPortals 0
 route_tryToGuessMissingPortalByDistance 1
@@ -216,6 +219,7 @@ runFromTarget 0
 runFromTarget_dist 5
 runFromTarget_minStep 7
 runFromTarget_maxStep 9
+runFromTarget_maxPathDistance 13
 
 saveMap
 saveMap_warpToBuyOrSell 1
@@ -292,6 +296,7 @@ partyAutoShare 0
 partyAutoShareItem 0
 partyAutoShareItemDiv 0
 guildAutoDeny 1
+attendanceAuto 1
 
 verbose 1
 showDomain 0
@@ -331,6 +336,8 @@ logAppendServer 0
 monsterLog 0
 logDead 1
 
+questDisplayStyle 2
+
 chatTitleOversize 0
 shopTitleOversize 0
 buyerShopTitleOversize 0
@@ -362,24 +369,42 @@ mercenary_attackAuto 2
 mercenary_attackAuto_party 1
 mercenary_attackAuto_notInTown 1
 mercenary_attackAuto_onlyWhenSafe 0
-mercenary_attackDistance 1.5
-mercenary_attackMaxDistance 2.5
+mercenary_attackAuto_duringRandomWalk 0
+mercenary_attackAuto_duringItemsTake 0
+mercenary_attackDistance 1
+mercenary_attackMaxDistance 1
 mercenary_attackDistanceAuto 0
 mercenary_attackMaxRouteTime 4
 mercenary_attackCanSnipe 0
-mercenary_attackCheckLOS 0
+mercenary_attackCheckLOS 1
+mercenary_attackRouteMaxPathDistance 13
 mercenary_attackNoGiveup 0
 mercenary_attackChangeTarget 1
+mercenary_attack_dance_melee 0
+mercenary_attack_dance_ranged 0
+
+mercenary_lost_teleportToMaster_maxTries 6
+
+mercenary_route_randomWalk_rescueWhenLost 0
+mercenary_route_randomWalk_stopDuringAttack 0
+mercenary_route_randomWalk_waitMinDistance 0
 
 mercenary_runFromTarget 0
 mercenary_runFromTarget_dist 5
 mercenary_runFromTarget_minStep 7
 mercenary_runFromTarget_maxStep 9
+mercenary_runFromTarget_maxPathDistance 13
 
-mercenary_followDistanceMax 10
+mercenary_followDistanceMax 12
 mercenary_followDistanceMin 3
 
-mercenary_route_step 15
+mercenary_moveNearWhenIdle 1
+mercenary_moveNearWhenIdle_minDistance 2
+mercenary_moveNearWhenIdle_maxDistance 12
+
+mercenary_idleWalkType 1
+
+mercenary_route_step 10
 
 mercenary_tankMode 0
 mercenary_tankModeTarget
@@ -401,27 +426,44 @@ homunculus_attackAuto 2
 homunculus_attackAuto_party 1
 homunculus_attackAuto_notInTown 1
 homunculus_attackAuto_onlyWhenSafe 0
-homunculus_attackDistance 1.5
-homunculus_attackMaxDistance 2.5
+homunculus_attackAuto_duringRandomWalk 0
+homunculus_attackAuto_duringItemsTake 0
+homunculus_attackDistance 1
+homunculus_attackMaxDistance 1
 homunculus_attackDistanceAuto 0
 homunculus_attackMaxRouteTime 4
 homunculus_attackCanSnipe 0
-homunculus_attackCheckLOS 0
+homunculus_attackCheckLOS 1
+homunculus_attackRouteMaxPathDistance 13
 homunculus_attackNoGiveup 0
 homunculus_attackChangeTarget 1
+homunculus_attack_dance_melee 0
 
-homunculus_followDistanceMax 10
-homunculus_followDistanceMin 3
+homunculus_lost_teleportToMaster_maxTries 6
 
-homunculus_route_step 15
-
-homunculus_tankMode 0
-homunculus_tankModeTarget
+homunculus_route_randomWalk_rescueWhenLost 0
+homunculus_route_randomWalk_stopDuringAttack 0
+homunculus_route_randomWalk_waitMinDistance 0
 
 homunculus_runFromTarget 0
 homunculus_runFromTarget_dist 5
 homunculus_runFromTarget_minStep 7
 homunculus_runFromTarget_maxStep 9
+homunculus_runFromTarget_maxPathDistance 13
+
+homunculus_followDistanceMax 12
+homunculus_followDistanceMin 3
+
+homunculus_moveNearWhenIdle 1
+homunculus_moveNearWhenIdle_minDistance 2
+homunculus_moveNearWhenIdle_maxDistance 12
+
+homunculus_idleWalkType 1
+
+homunculus_route_step 10
+
+homunculus_tankMode 0
+homunculus_tankModeTarget
 
 homunculus_StandByAuto 0
 homunculus_teleportAuto_hp 10
@@ -456,8 +498,9 @@ pet_return 20
 # configure two attack skills, just duplicate the attackSkillSlot block.
 
 attackSkillSlot {
-	lvl 10
-	dist 1.5
+	lvl
+	dist 1
+	maxDist 1
 	maxCastTime 0
 	minCastTime 0
 	hp
@@ -506,7 +549,8 @@ attackSkillSlot {
 attackComboSlot {
 	afterSkill
 	waitBeforeUse
-	dist 1.5
+	dist 1
+	maxDist 1
 	isSelfSkill 1
 	target_hp
 	target_deltaHp
@@ -544,7 +588,7 @@ doCommand {
 }
 
 useSelf_skill {
-	lvl 10
+	lvl
 	maxCastTime 0
 	minCastTime 0
 	hp
@@ -577,8 +621,9 @@ useSelf_skill_smartHeal 1
 partySkillDistance 0..8
 
 partySkill {
-	lvl 10
-	dist 3
+	lvl
+	dist 1
+	maxDist 8
 	maxCastTime 0
 	minCastTime 0
 	hp
@@ -711,8 +756,10 @@ useSelf_item {
 
 buyAuto {
 	npc
+	npc_steps b
+	isMarket 0
 	standpoint
-	distance 5
+	distance 3
 	price
 	minAmount 2
 	maxAmount 3
@@ -725,13 +772,13 @@ buyAuto {
 sellAuto 0
 sellAuto_npc
 sellAuto_standpoint
-sellAuto_distance 5
+sellAuto_distance 3
 sellAuto_npc_steps s
 
 storageAuto 0
 storageAuto_npc
 storageAuto_standpoint
-storageAuto_distance 5
+storageAuto_distance 3
 storageAuto_npc_type 1
 storageAuto_npc_steps
 storageAuto_password
